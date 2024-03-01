@@ -6,7 +6,7 @@ import com.project.tinyurl.repository.UrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import java.util.Date;
 
 
@@ -24,9 +24,11 @@ public class UrlService {
         this.baseConversion = baseConversion;
 
     }
-    public String getOriginalUrl(String url) {
-
+    public String getUrl(String url) {
+        System.out.println("url: " + url);
         long id = baseConversion.decode(url);
+        System.out.println("id: " + id);
+
         var entity = urlRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("No url find for this short url: " + url));
 

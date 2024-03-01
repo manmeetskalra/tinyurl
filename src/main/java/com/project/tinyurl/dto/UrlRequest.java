@@ -12,7 +12,7 @@ public class UrlRequest {
     @ApiModelProperty(required = true, notes = "String url that needed to be shortened")
     private String url;
 
-    @ApiModelProperty(required = true, notes = "Expiration DateTime of URL")
+    @ApiModelProperty(notes = "Expiration DateTime of URL")
     private Date expirationDate;
 
     public String getUrl() {
